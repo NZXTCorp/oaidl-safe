@@ -14,7 +14,7 @@ edition = "2018"
 [dependencies]
 # mandatory packages
 rust_decimal = "0.10.1"
-widestring = "0.4.0"
+widestring = "1"
 winapi = {version = "0.3.6", features = ["minwindef", "ntdef", "oaidl", "oleauto", "unknwnbase", "wtypes"]}
 thiserror = "1"
 
