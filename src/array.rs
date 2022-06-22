@@ -679,7 +679,7 @@ mod test {
         let mut v = v.into_iter();
         let p = <IntoIter<U16String> as SafeArrayExt<U16String>>::into_safearray(&mut v).unwrap();
 
-        let r: Result<Vec<U16String>, SafeArrayError> = IntoIter::from_safearray(p);
+        let r: Result<Vec<U16String>, SafeArrayError> = IntoIter::<_>::from_safearray(p);
 
         let r = r.unwrap();
         assert_eq!(
@@ -722,7 +722,7 @@ mod test {
         )
         .unwrap();
 
-        let r: Result<Vec<Variant<u64, u64>>, SafeArrayError> = IntoIter::from_safearray(p);
+        let r: Result<Vec<Variant<u64, u64>>, SafeArrayError> = IntoIter::<_>::from_safearray(p);
         let r = r.unwrap();
         assert_eq!(r, vec![Variant::wrap(100u64)]);
     }
@@ -751,7 +751,7 @@ mod test {
 
         let mut ii = v.clone().into_iter();
         let p = <IntoIter<Variants> as SafeArrayExt<Variants>>::into_safearray(&mut ii).unwrap();
-        let r = IntoIter::from_safearray(p);
+        let r = IntoIter::<_>::from_safearray(p);
         assert_eq!(v, r.unwrap());
     }
 
