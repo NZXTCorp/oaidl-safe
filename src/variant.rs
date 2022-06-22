@@ -215,7 +215,6 @@ pub(crate) mod private {
     impl_conversions!(Ptr<IUnknown>, VT_UNKNOWN, punkVal, punkVal_mut);
     impl_conversions!(Ptr<IDispatch>, VT_DISPATCH, pdispVal, pdispVal_mut);
     impl_conversions!(< S : SafeArrayElement> Vec<S>, *mut SAFEARRAY, VT_ARRAY, parray, parray_mut);
-    #[allow(single_use_lifetimes)]
     impl_conversions!(<'s, S: SafeArrayElement>  &'s [S], *mut SAFEARRAY, VT_ARRAY, parray, parray_mut);
     impl_conversions!(Box<VariantBool> => *mut VARIANT_BOOL, VT_PBOOL, pboolVal, pboolVal_mut);
     impl_conversions!(Box<u8>, VT_PUI1, pbVal, pbVal_mut);
